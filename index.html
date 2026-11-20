@@ -1,0 +1,2413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Truelife Film Production</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* GENERAL SETTINGS */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #ffffff;
+        color: #3d3b3b;
+      }
+
+      /* HERO SECTION */
+
+      .hero {
+        width: 100%;
+        height: 100vh;
+        min-height: 650px;
+        position: relative;
+        overflow: hidden;
+
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25)),
+          url("TL-04360.jpg");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* NAVIGATION BAR */
+
+      .navbar {
+        width: 100%;
+        height: 95px;
+
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+
+        padding: 0 8%;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+      }
+
+      .nav-right {
+        justify-content: flex-end;
+      }
+
+      .navbar nav a {
+        text-decoration: none;
+        color: #ffffff;
+
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+
+        transition: 0.3s;
+      }
+
+      .navbar nav a:hover {
+        opacity: 0.6;
+      }
+
+      /* BUSINESS NAME */
+
+      .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      /* BUSINESS BRANDING */
+
+      .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .logo a {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 38px;
+        font-weight: 500;
+        font-style: normal;
+        letter-spacing: 1px;
+
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1;
+      }
+
+      .logo span {
+        font-family: "DM Sans", sans-serif;
+        font-size: 8px;
+        font-weight: 500;
+        letter-spacing: 4px;
+
+        color: #ffffff;
+        margin-top: 7px;
+      }
+
+      /* HERO CONTENT */
+
+      .hero-content {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        width: 90%;
+        text-align: center;
+        color: white;
+      }
+
+      .hero-subtitle {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        margin-bottom: 22px;
+      }
+
+      .hero-content h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(38px, 5vw, 70px);
+        font-weight: 400;
+        line-height: 1.08;
+      }
+
+      .hero-description {
+        font-family: "Playfair Display", serif;
+        font-size: 17px;
+        font-style: italic;
+        margin-top: 20px;
+      }
+
+      /* HERO BUTTON */
+
+      .hero-button {
+        display: inline-block;
+        margin-top: 35px;
+        padding-bottom: 8px;
+
+        color: white;
+        text-decoration: none;
+
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 2px;
+
+        border-bottom: 1px solid white;
+        transition: 0.3s;
+      }
+
+      .hero-button:hover {
+        opacity: 0.6;
+      }
+
+      /* BOTTOM INFORMATION BAR */
+
+      .hero-footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        min-height: 75px;
+
+        background: #efede8;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 15px 8%;
+      }
+
+      .location {
+        font-family: "Playfair Display", serif;
+        font-size: 13px;
+        font-style: italic;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      /* SLIDER CONTROLS */
+
+      .slider-controls {
+        position: absolute;
+        right: 8%;
+
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        font-size: 12px;
+      }
+
+      .slider-controls span {
+        font-size: 23px;
+      }
+
+      /* HAMBURGER MENU */
+
+      .menu-toggle {
+        display: block !important;
+
+        background: transparent;
+        border: none;
+
+        color: #ffffff;
+        font-size: 28px;
+
+        cursor: pointer;
+        padding: 5px;
+
+        z-index: 1002;
+      }
+
+      /* RESPONSIVE DESIGN */
+
+      @media (max-width: 768px) {
+        .hero {
+          min-height: 100vh;
+          background-position: 55% center;
+        }
+
+        .navbar {
+          height: 80px;
+          padding: 0 6%;
+          grid-template-columns: 1fr auto;
+        }
+
+        .nav-left,
+        .nav-right {
+          display: none;
+        }
+
+        .logo img {
+          width: 110px;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .hero-content {
+          width: 92%;
+          top: 47%;
+        }
+
+        .hero-content h1 {
+          font-size: clamp(35px, 9vw, 50px);
+        }
+
+        .hero-subtitle {
+          font-size: 8px;
+          letter-spacing: 2px;
+        }
+
+        .hero-description {
+          font-size: 15px;
+        }
+
+        .hero-footer {
+          min-height: 85px;
+        }
+
+        .slider-controls {
+          display: none;
+        }
+      }
+
+      /* BOOK NOW BUTTON */
+
+      .navbar .book-now {
+        display: inline-block;
+        padding: 12px 24px;
+
+        background-color: #ffffff;
+        color: #292725 !important;
+
+        border: 1px solid #ffffff;
+        border-radius: 2px;
+
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .navbar .book-now:hover {
+        background-color: transparent;
+        color: #ffffff !important;
+      }
+
+      /* ABOUT SECTION */
+
+      .about-section {
+        width: 100%;
+        min-height: 100vh;
+        box-sizing: border-box;
+        background-color: #efede8;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 60px 8%;
+      }
+
+      /* TWO COLUMN LAYOUT */
+
+      .about-section .about-container {
+        width: 100%;
+        max-width: 1350px;
+        margin: auto;
+
+        display: grid !important;
+        grid-template-columns: 350px minmax(0, 1fr) !important;
+        align-items: center;
+        gap: 90px;
+      }
+
+      /* IMAGE LEFT SIDE */
+
+      .about-section .about-image {
+        width: 350px !important;
+        height: 450px !important;
+        max-width: 350px !important;
+        overflow: hidden;
+      }
+
+      .about-section .about-image img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      /* TEXT RIGHT SIDE */
+
+      .about-section .about-content {
+        width: 100%;
+        max-width: 550px;
+      }
+
+      .about-section .about-subtitle {
+        font-size: 10px;
+        letter-spacing: 4px;
+        margin-bottom: 22px;
+        color: #77716a;
+      }
+
+      .about-section .about-content h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: #3d3b3b;
+        margin-bottom: 25px;
+      }
+
+      .about-section .about-content p {
+        font-size: 14px;
+        line-height: 1.9;
+        color: #77716a;
+        margin-bottom: 18px;
+      }
+
+      .about-section .about-button {
+        display: inline-block;
+        margin-top: 15px;
+        padding-bottom: 8px;
+        color: #3d3b3b;
+        text-decoration: none;
+        font-size: 10px;
+        letter-spacing: 2px;
+        border-bottom: 1px solid #3d3b3b;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 768px) {
+        .about-section {
+          padding: 60px 7%;
+        }
+
+        .about-section .about-container {
+          grid-template-columns: 1fr !important;
+          gap: 35px;
+        }
+
+        .about-section .about-image {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: 350px !important;
+        }
+
+        .about-section .about-content h2 {
+          font-size: 36px;
+        }
+      }
+
+      /* FIXED NAVIGATION ON ALL SECTIONS */
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+
+        background: rgba(45, 43, 41, 0.55);
+        backdrop-filter: blur(8px);
+      }
+
+      /* MOBILE HAMBURGER VISIBILITY */
+
+      @media (max-width: 768px) {
+        .nav-left {
+          display: none;
+        }
+
+        .nav-right {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .nav-right a {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: block !important;
+          color: #ffffff;
+        }
+      }
+
+      /* ABOUT SECTION FADE-IN ANIMATION */
+
+      .about-section .about-image,
+      .about-section .about-content {
+        opacity: 0;
+        transform: translateY(35px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      /* Photograph appears first */
+      .about-section .about-image.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.1s;
+      }
+
+      /* Text appears slightly later */
+      .about-section .about-content.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.35s;
+      }
+
+      /* HOME SECTION REPEATING FADE-IN */
+
+      .hero .hero-content {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 35px));
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      .hero .hero-content.show {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        .about-section .about-image,
+        .about-section .about-content {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      /* SMOOTH TRANSITION BETWEEN SECTIONS */
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Prevent sections from hiding behind fixed navigation */
+      section {
+        scroll-margin-top: 95px;
+      }
+
+      /* ==============================
+   PORTFOLIO SECTION
+============================== */
+
+      .portfolio-section {
+        width: 100%;
+        min-height: 100vh;
+        padding: 120px 8%;
+        background: #ffffff;
+      }
+
+      .portfolio-container {
+        max-width: 1350px;
+        margin: auto;
+      }
+
+      /* PORTFOLIO HEADER */
+
+      .portfolio-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 40px;
+        margin-bottom: 55px;
+      }
+
+      .portfolio-subtitle {
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: #77716a;
+        margin-bottom: 20px;
+      }
+
+      .portfolio-heading h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(38px, 5vw, 65px);
+        font-weight: 400;
+        line-height: 1.15;
+        color: #3d3b3b;
+      }
+
+      .portfolio-description {
+        max-width: 330px;
+        font-size: 13px;
+        line-height: 1.9;
+        color: #77716a;
+        margin-bottom: 5px;
+      }
+
+      /* CATEGORY GRID */
+
+      .portfolio-categories {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      /* CATEGORY CARDS */
+
+      .category-card {
+        position: relative;
+        width: 100%;
+        height: 390px;
+        padding: 0;
+        border: none;
+        background: #ddd;
+        overflow: hidden;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .category-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.7s ease;
+      }
+
+      .category-card:hover img {
+        transform: scale(1.06);
+      }
+
+      /* IMAGE OVERLAY */
+
+      .category-overlay {
+        position: absolute;
+        inset: 0;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.65),
+          rgba(0, 0, 0, 0.05) 65%
+        );
+
+        color: white;
+      }
+
+      .category-overlay span {
+        font-size: 9px;
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+      }
+
+      .category-overlay h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 38px;
+        font-weight: 400;
+        margin-bottom: 12px;
+      }
+
+      .category-overlay p {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+
+      /* LAST CATEGORY FULL WIDTH */
+
+      .category-card:last-child {
+        grid-column: 1 / -1;
+        height: 430px;
+      }
+
+      /* MOBILE RESPONSIVENESS */
+
+      @media (max-width: 768px) {
+        .portfolio-section {
+          padding: 100px 6%;
+        }
+
+        .portfolio-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          margin-bottom: 35px;
+        }
+
+        .portfolio-description {
+          max-width: 100%;
+        }
+
+        .portfolio-categories {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .category-card {
+          height: 320px;
+        }
+
+        .category-card:last-child {
+          grid-column: auto;
+          height: 320px;
+        }
+
+        .category-overlay {
+          padding: 23px;
+        }
+
+        .category-overlay h3 {
+          font-size: 32px;
+        }
+      }
+
+      /* PORTFOLIO SECTION FADE-IN ANIMATION */
+
+      /* Portfolio heading and category cards */
+
+      .portfolio-section .portfolio-header,
+      .portfolio-section .category-card {
+        opacity: 0;
+        transform: translateY(35px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      /* Heading and description appear first */
+
+      .portfolio-section .portfolio-header.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.1s;
+      }
+
+      /* Images and their text appear together */
+
+      .portfolio-section .category-card.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.35s;
+      }
+
+      /* Accessibility */
+
+      @media (prefers-reduced-motion: reduce) {
+        .portfolio-section .portfolio-header,
+        .portfolio-section .category-card {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      /* ================================
+   PRICING SECTION
+================================ */
+
+      .pricing-section {
+        width: 100%;
+        padding: 75px 7% 150px;
+          background-color: #efede8;
+      }
+
+      .pricing-container {
+        max-width: 1250px;
+        margin: 0 auto;
+      }
+
+      /* PRICING HEADER */
+
+      .pricing-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 65px;
+      }
+
+      .pricing-subtitle {
+        font-family: "DM Sans", sans-serif;
+        font-size: 11px;
+        letter-spacing: 3px;
+        color: #77716a;
+        margin-bottom: 22px;
+      }
+
+      .pricing-header h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(38px, 5vw, 62px);
+        font-weight: 400;
+        line-height: 1.15;
+        color: #3d3b3b;
+        margin-bottom: 22px;
+      }
+
+      .pricing-description {
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        line-height: 1.8;
+        color: #77716a;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      /* PRICING CARDS */
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .pricing-card {
+        background: rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 8px 32px rgba(61, 59, 59, 0.08);
+        border-radius: 12px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 42px 32px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      }
+
+      /* FEATURED CARD */
+
+      .pricing-card.featured {
+        background: rgba(45, 43, 42, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+      }
+
+      .package-label {
+        font-family: "DM Sans", sans-serif;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: #918a80;
+        margin-bottom: 25px;
+      }
+
+      .featured .package-label {
+        color: #c5bdb1;
+      }
+
+      .pricing-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        font-weight: 400;
+        color: #3d3b3b;
+        margin-bottom: 12px;
+      }
+
+      .featured h3 {
+        color: #ffffff;
+      }
+
+      .package-description {
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        line-height: 1.7;
+        color: #77716a;
+        min-height: 66px;
+      }
+
+      .featured .package-description {
+        color: #d0cbc4;
+      }
+
+      .pricing-card h4 {
+        font-family: "DM Sans", sans-serif;
+        font-size: 25px;
+        font-weight: 500;
+        color: #3d3b3b;
+        margin: 28px 0;
+      }
+
+      .featured h4 {
+        color: #ffffff;
+      }
+
+      .package-divider {
+        width: 100%;
+        height: 1px;
+        background-color: #dedbd5;
+        margin-bottom: 25px;
+      }
+
+      .featured .package-divider {
+        background-color: #686563;
+      }
+
+      /* PACKAGE INCLUSIONS */
+
+      .pricing-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 35px;
+      }
+
+      .pricing-card ul li {
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        color: #66615c;
+        margin-bottom: 17px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .pricing-card ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #8c8275;
+      }
+
+      .featured ul li {
+        color: #e2ded8;
+      }
+
+      .featured ul li::before {
+        color: #d2c5b4;
+      }
+
+      /* BOOKING BUTTON */
+
+      .package-button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        font-family: "DM Sans", sans-serif;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        padding: 16px 12px;
+        border: 1px solid #3d3b3b;
+        color: #3d3b3b;
+        margin-top: auto;
+        transition: all 0.3s ease;
+      }
+
+      .package-button:hover {
+        background-color: #3d3b3b;
+        color: #ffffff;
+      }
+
+      .featured .package-button {
+        border-color: #ffffff;
+        color: #ffffff;
+      }
+
+      .featured .package-button:hover {
+        background-color: #ffffff;
+        color: #3d3b3b;
+      }
+      /* PREMIUM GOLD CARD */
+
+      .pricing-card.premium {
+        background: rgba(185, 154, 107, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #ffffff;
+      }
+
+      .pricing-card.premium h3,
+      .pricing-card.premium h4 {
+        color: #ffffff;
+      }
+
+      .pricing-card.premium .package-description {
+        color: #ffffff;
+      }
+
+      .pricing-card.premium ul li {
+        color: #ffffff;
+      }
+
+      .pricing-card.premium ul li::before {
+        color: #ffffff;
+      }
+
+      .pricing-card.premium .package-button {
+        border-color: #ffffff;
+        color: #ffffff;
+      }
+
+      .pricing-card.premium .package-button:hover {
+        background-color: #ffffff;
+        color: #b99a6b;
+      }
+
+      /* PRICING CATEGORY */
+      .pricing-category {
+        margin-bottom: 75px;
+      }
+
+      .pricing-category-header {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+
+      .pricing-category-header h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        font-weight: 500;
+        color: #3d3b3b;
+        margin-bottom: 10px;
+      }
+
+      .pricing-category-header p {
+        font-size: 14px;
+        color: #77716b;
+        line-height: 1.7;
+      }
+
+      /* TABLET */
+
+      @media (max-width: 950px) {
+        .pricing-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 600px) {
+        .pricing-section {
+          padding: 85px 6%;
+        }
+
+        .pricing-header {
+          margin-bottom: 45px;
+        }
+
+        .pricing-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .pricing-card {
+          padding: 35px 27px;
+        }
+
+        .pricing-header h2 {
+          font-size: 38px;
+        }
+      }
+      
+/* ==============================
+   COMPANY INFO SECTION
+============================== */
+
+.info-section {
+  width: 100%;
+  padding: 40px 8% 120px;
+  background: #efede8;
+}
+
+.info-container {
+  max-width: 1350px;
+  margin: auto;
+}
+
+.info-about {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.info-heading span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #77716a;
+  margin-bottom: 25px;
+}
+
+.info-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #3d3b3b;
+}
+
+.info-content {
+  padding-top: 42px;
+}
+
+.info-content p {
+  font-size: 14px;
+  line-height: 2;
+  color: #77716a;
+  margin-bottom: 20px;
+}
+
+/* ==============================
+   OUR MISSION SECTION
+============================== */
+
+.info-mission {
+  width: 100%;
+  padding: 100px 5% 40px;
+  text-align: center;
+}
+
+/* DIVIDER */
+
+.mission-divider {
+  width: 55px;
+  height: 1px;
+  background: #b8afa3;
+  margin: 0 auto;
+}
+
+/* MISSION CONTENT */
+
+.mission-content {
+  max-width: 750px;
+  margin: 55px auto;
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.mission-content span {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #77716a;
+  margin-bottom: 22px;
+}
+
+.mission-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #3d3b3b;
+  margin-bottom: 25px;
+}
+
+.mission-content p {
+  max-width: 680px;
+  margin: auto;
+  font-size: 14px;
+  line-height: 2;
+  color: #77716a;
+}
+
+/* WHY CHOOSE US */
+
+.info-why {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 100px;
+  margin-top: 120px;
+  padding-top: 80px;
+  border-top: 1px solid #cfc9c0;
+}
+
+.why-heading span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #77716a;
+  margin-bottom: 25px;
+}
+
+.why-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #3d3b3b;
+}
+
+.why-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-item {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+  gap: 20px;
+  padding: 25px 0;
+  border-bottom: 1px solid #d5d0c8;
+}
+
+.why-item:first-child {
+  padding-top: 0;
+}
+
+.why-item > span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #92897e;
+  padding-top: 5px;
+}
+
+.why-item h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #3d3b3b;
+  margin-bottom: 10px;
+}
+
+.why-item p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #77716a;
+  max-width: 500px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .info-why {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 80px;
+    padding-top: 55px;
+  }
+
+  .why-item {
+    grid-template-columns: 35px 1fr;
+    gap: 12px;
+  }
+
+  .why-item h3 {
+    font-size: 22px;
+  }
+}
+
+/* FADE-IN ANIMATION */
+
+.mission-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .info-mission {
+    padding: 75px 3% 20px;
+  }
+
+  .mission-content {
+    margin: 40px auto;
+  }
+
+  .mission-content p {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .mission-content {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==============================
+   OUR VISION SECTION
+============================== */
+
+.info-vision {
+  width: 100%;
+  padding: 40px 5% 30px;
+  text-align: center;
+}
+
+.vision-divider {
+  width: 55px;
+  height: 1px;
+  background: #b8afa3;
+  margin: 0 auto;
+}
+
+.vision-content {
+  max-width: 750px;
+  margin: 55px auto;
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.vision-content span {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #77716a;
+  margin-bottom: 22px;
+}
+
+.vision-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #3d3b3b;
+  margin-bottom: 25px;
+}
+
+.vision-content p {
+  max-width: 680px;
+  margin: auto;
+  font-size: 14px;
+  line-height: 2;
+  color: #77716a;
+}
+
+.vision-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .info-vision {
+    padding: 30px 3% 20px;
+  }
+
+  .vision-content {
+    margin: 40px auto;
+  }
+
+  .vision-content p {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .vision-content {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* FADE-IN ANIMATION */
+
+.info-about .info-heading,
+.info-about .info-content {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.info-about .info-heading.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.info-about .info-content.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .info-section {
+    padding: 90px 7%;
+  }
+
+  .info-about {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .info-content {
+    padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-about .info-heading,
+  .info-about .info-content {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  background: #FAF9F6;
+  padding: 60px 8% 110px;
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 55px;
+}
+
+.contact-subtitle {
+  color: #77716a;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.contact-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 500;
+  color: #3d3b3b;
+  margin: 15px 0;
+}
+
+.contact-heading p {
+  color: #77716a;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.contact-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #3d3b3b;
+  margin-bottom: 10px;
+}
+
+.contact-item p {
+  color: #77716a;
+  font-size: 14px;
+}
+
+.contact-form {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  color: #3d3b3b;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #cfc9c0;
+  background: transparent;
+  color: #3d3b3b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #77716a;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.contact-button {
+  display: block;
+  margin: 15px auto 0;
+  padding: 15px 40px;
+  border: 1px solid #3d3b3b;
+  background: #3d3b3b;
+  color: #efede8;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background: transparent;
+  color: #3d3b3b;
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 75px 6%;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-details {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* HAMBURGER MENU PANEL */
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 80px;
+  right: 6%;
+  width: 260px;
+  padding: 20px;
+  background: #3d3b3b;
+  z-index: 9999;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 15px 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  opacity: 0.6;
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    right: 8%;
+  }
+}
+
+    </style>
+  </head>
+
+  <body>
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+      <!-- NAVIGATION -->
+
+      <header class="navbar">
+        <nav class="nav-left">
+          <a href="#home">HOME</a>
+          <a href="#about">ABOUT</a>
+          <a href="#portfolio">PORTFOLIO +</a>
+        </nav>
+
+        <!-- BUSINESS LOGO -->
+
+        <div class="logo">
+          <a href="#home">Truelife</a>
+          <span>FILM PRODUCTION</span>
+        </div>
+
+        <nav class="nav-right">
+          <a href="#pricing">PRICING</a>
+          <a href="#services">INFO +</a>
+          <a href="#contact">CONTACT</a>
+
+          <a href="booking.html" class="book-now"> BOOK NOW </a>
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+        </nav>
+      </header>
+
+<!-- HAMBURGER MENU PANEL -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">HOME</a>
+  <a href="#about">ABOUT</a>
+  <a href="#portfolio">PORTFOLIO</a>
+  <a href="#pricing">PRICING</a>
+  <a href="#services">INFO</a>
+  <a href="#contact">CONTACT</a>
+  <a href="booking.html">BOOK NOW</a>
+</div>
+
+
+      <!-- MAIN HERO CONTENT -->
+
+      <div class="hero-content">
+        <p class="hero-subtitle">PHOTOGRAPHY & VIDEOGRAPHY</p>
+
+        <h1>
+          EVERY MOMENT,<br />
+          A STORY TO REMEMBER.
+        </h1>
+
+        <p class="hero-description">
+          capturing timeless moments through our lens
+        </p>
+
+        <a href="#portfolio" class="hero-button"> EXPLORE OUR WORK ↗ </a>
+      </div>
+
+      <!-- BOTTOM BAR -->
+
+      <div class="hero-footer">
+        <p class="location">
+          Based in Sorsogon<br />
+          available for destination events
+        </p>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about-section" id="about">
+      <div class="about-container">
+        <!-- LEFT: PHOTOGRAPH -->
+        <div class="about-image">
+          <img src="DSC06176.jpg" alt="Truelife Photography" />
+        </div>
+
+        <!-- RIGHT: ABOUT TEXT -->
+        <div class="about-content">
+          <div class="about-subtitle">GET TO KNOW US</div>
+
+          <h2>We Capture Stories, Not Just Moments.</h2>
+
+          <p>
+            At Truelife Film Production, we believe that every moment holds a
+            story worth remembering. Through photography and videography, we
+            capture genuine emotions, meaningful connections, and unforgettable
+            experiences.
+          </p>
+
+          <p>
+            Our passion is to preserve life's most beautiful moments through
+            timeless visuals that you can cherish for years to come.
+          </p>
+
+          <a href="#portfolio" class="about-button"> DISCOVER OUR WORK ↗ </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="portfolio-container">
+        <div class="portfolio-header">
+          <div class="portfolio-heading">
+            <p class="portfolio-subtitle">OUR SELECTED WORK</p>
+            <h2>Stories We've<br />Captured.</h2>
+          </div>
+
+          <p class="portfolio-description">
+            Every photograph tells a story. Explore our collections of
+            portraits, birthdays, events, weddings, and documentaries.
+          </p>
+        </div>
+
+        <div class="portfolio-categories">
+          <button class="category-card" data-category="portraits">
+            <img src="TL-04481.jpg" alt="Portrait Photography" />
+            <div class="category-overlay">
+              <span>01 / COLLECTION</span>
+              <h3>Portraits</h3>
+              <p>EXPLORE GALLERY ↗</p>
+            </div>
+          </button>
+
+          <button class="category-card" data-category="birthday">
+            <img src="JSH03970.jpg" alt="Birthday Photography" />
+            <div class="category-overlay">
+              <span>02 / COLLECTION</span>
+              <h3>Birthday</h3>
+              <p>EXPLORE GALLERY ↗</p>
+            </div>
+          </button>
+
+          <button class="category-card" data-category="events">
+            <img src="TL-02337.jpg" alt="Event Photography" />
+            <div class="category-overlay">
+              <span>03 / COLLECTION</span>
+              <h3>Events</h3>
+              <p>EXPLORE GALLERY ↗</p>
+            </div>
+          </button>
+
+          <button class="category-card" data-category="wedding">
+            <img src="DSC05661.jpg" alt="Wedding Photography" />
+            <div class="category-overlay">
+              <span>04 / COLLECTION</span>
+              <h3>Wedding</h3>
+              <p>EXPLORE GALLERY ↗</p>
+            </div>
+          </button>
+
+          <button class="category-card" data-category="documentary">
+            <img src="TL-07140.jpg" alt="Documentary Photography" />
+            <div class="category-overlay">
+              <span>05 / COLLECTION</span>
+              <h3>Documentary</h3>
+              <p>EXPLORE GALLERY ↗</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- END PORTFOLIO SECTION -->
+
+    <!-- PRICING SECTION -->
+    <section class="pricing-section" id="pricing">
+      <div class="pricing-container">
+        <div class="pricing-header">
+          <p class="pricing-subtitle">INVESTMENT & PACKAGES</p>
+
+          <h2>
+            Every Story Deserves<br />
+            To Be Remembered.
+          </h2>
+
+          <p class="pricing-description">
+            Thoughtfully crafted photography and videography packages for life's
+            most meaningful moments.
+          </p>
+        </div>
+
+        <!-- BIRTHDAY PRICING -->
+        <div class="pricing-category">
+          <div class="pricing-category-header">
+            <h3>Birthday</h3>
+            <p>
+              Celebrate every milestone with photographs and films worth
+              keeping.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <h3>Essential</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                A simple way to preserve your celebration.
+              </p>
+              <ul>
+                <li>Professional photography</li>
+                <li>Edited digital photos</li>
+                <li>Online gallery</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+
+            <div class="pricing-card featured">
+              <h3>Signature</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                More moments, beautifully documented.
+              </p>
+              <ul>
+                <li>Professional photography</li>
+                <li>Enhanced photo editing</li>
+                <li>Highlight video</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+
+            <div class="pricing-card premium">
+              <h3>Premium</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                A complete collection of your celebration.
+              </p>
+              <ul>
+                <li>Photography and videography</li>
+                <li>Premium photo editing</li>
+                <li>Cinematic highlight video</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHOTOSHOOT PRICING -->
+        <div class="pricing-category">
+          <div class="pricing-category-header">
+            <h3>Photoshoot</h3>
+            <p>Personal portraits, creative sessions, and lasting memories.</p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <h3>Essential</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                Simple portraits with a professional touch.
+              </p>
+              <ul>
+                <li>Professional photoshoot</li>
+                <li>Edited digital photos</li>
+                <li>Online gallery</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+
+            <div class="pricing-card featured">
+              <h3>Signature</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                A more creative and personalized session.
+              </p>
+              <ul>
+                <li>Professional photoshoot</li>
+                <li>Advanced photo editing</li>
+                <li>Multiple poses and concepts</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+
+            <div class="pricing-card premium">
+              <h3>Premium</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                A complete and elevated portrait experience.
+              </p>
+              <ul>
+                <li>Extended photoshoot session</li>
+                <li>Premium photo retouching</li>
+                <li>Creative direction</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEDDING PRICING -->
+        <div class="pricing-category">
+          <div class="pricing-category-header">
+            <h3>Wedding</h3>
+            <p>
+              Preserve the beauty, emotion, and memories of your special day.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <h3>Essential</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                The meaningful highlights of your wedding day.
+              </p>
+              <ul>
+                <li>Wedding photography</li>
+                <li>Edited digital photos</li>
+                <li>Online gallery</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+
+            <div class="pricing-card featured">
+              <h3>Signature</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                A thoughtful story of your celebration.
+              </p>
+              <ul>
+                <li>Wedding photography</li>
+                <li>Wedding videography</li>
+                <li>Highlight film</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+
+            <div class="pricing-card premium">
+              <h3>Premium</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                A complete visual story of your wedding.
+              </p>
+              <ul>
+                <li>Full photography coverage</li>
+                <li>Full videography coverage</li>
+                <li>Cinematic wedding film</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EVENTS PRICING -->
+        <div class="pricing-category">
+          <div class="pricing-category-header">
+            <h3>Events</h3>
+            <p>
+              Professional photography and videography for meaningful occasions.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <h3>Essential</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                Capture the important moments of your event.
+              </p>
+              <ul>
+                <li>Event photography</li>
+                <li>Edited digital photos</li>
+                <li>Online gallery</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+
+            <div class="pricing-card featured">
+              <h3>Signature</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                A richer collection of event memories.
+              </p>
+              <ul>
+                <li>Event photography</li>
+                <li>Event videography</li>
+                <li>Highlight video</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+
+            <div class="pricing-card premium">
+              <h3>Premium</h3>
+              <h4>₱ --</h4>
+              <p class="package-description">
+                Complete coverage of your special occasion.
+              </p>
+              <ul>
+                <li>Photography and videography</li>
+                <li>Premium photo editing</li>
+                <li>Cinematic event film</li>
+              </ul>
+              <a href="#contact" class="package-button">Inquire Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END PRICING SECTION -->
+     
+<!-- INFO SECTION -->
+<section class="info-section" id="services">
+  <div class="info-container">
+
+    <!-- ABOUT THE COMPANY -->
+    <div class="info-about">
+
+      <div class="info-heading">
+        <span>GET TO KNOW OUR COMPANY</span>
+        <h2>About<br>True Life.</h2>
+      </div>
+
+      <div class="info-content">
+        <p>
+          True Life Film Production is a photography and videography
+          company based in Sorsogon City, dedicated to capturing
+          meaningful moments through creative visuals and storytelling.
+        </p>
+
+        <p>
+          We specialize in preserving life's important occasions
+          through professional photography and cinematic video
+          production. From portraits and birthdays to weddings,
+          events, and documentaries, we aim to transform every
+          moment into lasting memories.
+        </p>
+
+        <p>
+          With creativity, passion, and attention to detail, we
+          strive to deliver visual experiences that tell stories
+          worth remembering.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- OUR MISSION -->
+    <div class="info-mission">
+
+      <div class="mission-divider"></div>
+
+      <div class="mission-content">
+        <span>OUR PURPOSE</span>
+
+        <h2>Our Mission.</h2>
+
+        <p>
+          To capture life's most meaningful moments through creative
+          photography and cinematic storytelling. We are committed
+          to preserving genuine emotions, meaningful connections,
+          and unforgettable experiences through visuals crafted
+          with passion, creativity, and attention to detail.
+        </p>
+      </div>
+
+      <div class="mission-divider"></div>
+
+    </div>
+    <!-- END OUR MISSION -->
+
+    <!-- OUR VISION -->
+    <div class="info-vision">
+
+      <div class="vision-divider"></div>
+
+      <div class="vision-content">
+        <span>WHAT WE ASPIRE TO BE</span>
+
+        <h2>Our Vision.</h2>
+
+        <p>
+          To become a trusted and recognized photography and
+          videography team known for creating timeless visual
+          stories. We aspire to inspire people through our work,
+          build meaningful connections with every client, and
+          preserve memories that can be treasured for generations.
+        </p>
+      </div>
+
+      <div class="vision-divider"></div>
+
+    </div>
+    <!-- END OUR VISION -->
+
+<!-- WHY CHOOSE US -->
+<div class="info-why">
+
+  <div class="why-heading">
+    <span>THE TRUELIFE EXPERIENCE</span>
+    <h2>Why Choose<br>True Life?</h2>
+  </div>
+
+  <div class="why-content">
+
+    <div class="why-item">
+      <span>01</span>
+      <div>
+        <h3>Passion for Storytelling</h3>
+        <p>
+          We believe every moment has a story worth telling.
+          Our goal is to capture genuine emotions and turn
+          them into memories you can treasure.
+        </p>
+      </div>
+    </div>
+
+    <div class="why-item">
+      <span>02</span>
+      <div>
+        <h3>Attention to Detail</h3>
+        <p>
+          From the little details to the most meaningful
+          moments, we give care and thought to every
+          visual we create.
+        </p>
+      </div>
+    </div>
+
+    <div class="why-item">
+      <span>03</span>
+      <div>
+        <h3>Meaningful Visuals</h3>
+        <p>
+          We aim to create photographs and films that
+          go beyond documentation and preserve the
+          feeling behind every experience.
+        </p>
+      </div>
+    </div>
+
+    <div class="why-item">
+      <span>04</span>
+      <div>
+        <h3>Memories That Last</h3>
+        <p>
+          Every project is an opportunity to create
+          timeless visuals that you can look back on
+          and cherish for years to come.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="contact-container">
+
+    <div class="contact-heading">
+      <span class="contact-subtitle">LET'S CONNECT</span>
+      <h2>Get In Touch</h2>
+      <p>
+        Have a project in mind or want to capture a special moment?
+        We'd love to hear from you. Send us a message and let's create
+        something meaningful together.
+      </p>
+    </div>
+
+    <div class="contact-details">
+      <div class="contact-item">
+        <h3>Email</h3>
+        <p>truelifefilmproduction19@gmail.com</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Phone</h3>
+        <p>+639949728347</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Location</h3>
+        <p>Sorsogon City, Philippines</p>
+      </div>
+    </div>
+
+    <form class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="contact-name">Your Name</label>
+          <input type="text" id="contact-name"
+            name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Your Email</label>
+          <input type="email" id="contact-email"
+            name="email" placeholder="Enter your email" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="contact-subject">Subject</label>
+        <input type="text" id="contact-subject"
+          name="subject" placeholder="What is your inquiry about?" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contact-message">Your Message</label>
+        <textarea id="contact-message" name="message"
+          rows="6" placeholder="Write your message here..."
+          required></textarea>
+      </div>
+
+      <button type="submit" class="contact-button">
+        Send Message
+      </button>
+    </form>
+
+  </div>
+</section>
+
+</section>
+<!-- END INFO SECTION -->
+
+
+    <script>
+      /* ABOUT SECTION SCROLL FADE-IN */
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const aboutSection = document.querySelector(".about-section");
+        const aboutImage = document.querySelector(
+          ".about-section .about-image",
+        );
+        const aboutContent = document.querySelector(
+          ".about-section .about-content",
+        );
+
+        if (!aboutSection || !aboutImage || !aboutContent) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                aboutImage.classList.add("show");
+                aboutContent.classList.add("show");
+              } else {
+                aboutImage.classList.remove("show");
+                aboutContent.classList.remove("show");
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          },
+        );
+
+        observer.observe(aboutSection);
+
+        /* PORTFOLIO SECTION SCROLL FADE-IN */
+
+        const portfolioSection = document.querySelector(".portfolio-section");
+
+        const portfolioHeader = document.querySelector(
+          ".portfolio-section .portfolio-header",
+        );
+
+        const portfolioCards = document.querySelectorAll(
+          ".portfolio-section .category-card",
+        );
+
+        if (portfolioSection && portfolioHeader && portfolioCards.length) {
+          const portfolioObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  portfolioHeader.classList.add("show");
+
+                  portfolioCards.forEach((card) => {
+                    card.classList.add("show");
+                  });
+                } else {
+                  portfolioHeader.classList.remove("show");
+
+                  portfolioCards.forEach((card) => {
+                    card.classList.remove("show");
+                  });
+                }
+              });
+            },
+            {
+              threshold: 0.1,
+            },
+          );
+
+          portfolioObserver.observe(portfolioSection);
+        }
+
+        /* HOME SECTION REPEATING FADE-IN */
+
+        const heroSection = document.querySelector(".hero");
+        const heroContent = document.querySelector(".hero-content");
+
+        if (heroSection && heroContent) {
+          const homeObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  heroContent.classList.add("show");
+                } else {
+                  heroContent.classList.remove("show");
+                }
+              });
+            },
+            {
+              threshold: 0.25,
+            },
+          );
+
+          homeObserver.observe(heroSection);
+        }
+      });
+      /* INFO SECTION SCROLL FADE-IN */
+
+const infoSection = document.querySelector(".info-section");
+const infoHeading = document.querySelector(".info-heading");
+const infoContent = document.querySelector(".info-content");
+
+if (infoSection && infoHeading && infoContent) {
+  const infoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          infoHeading.classList.add("show");
+          infoContent.classList.add("show");
+        } else {
+          infoHeading.classList.remove("show");
+          infoContent.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  infoObserver.observe(infoSection);
+}
+
+
+/* OUR MISSION SCROLL FADE-IN */
+
+const missionSection = document.querySelector(".info-mission");
+const missionContent = document.querySelector(".mission-content");
+
+if (missionSection && missionContent) {
+  const missionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          missionContent.classList.add("show");
+        } else {
+          missionContent.classList.remove("show");
+        }
+      });
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  missionObserver.observe(missionSection);
+}
+
+/* OUR VISION SCROLL FADE-IN */
+
+const visionSection = document.querySelector(".info-vision");
+const visionContent = document.querySelector(".vision-content");
+
+if (visionSection && visionContent) {
+  const visionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visionContent.classList.add("show");
+        } else {
+          visionContent.classList.remove("show");
+        }
+      });
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  visionObserver.observe(visionSection);
+}
+
+
+/* HAMBURGER MENU FUNCTIONALITY */
+
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener("click", function () {
+    mobileMenu.classList.toggle("active");
+
+    const isOpen = mobileMenu.classList.contains("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.innerHTML = isOpen ? "&times;" : "☰";
+  });
+
+  mobileMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mobileMenu.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.innerHTML = "☰";
+    });
+  });
+}
+
+    </script>
+    
+  </body>
+</html>

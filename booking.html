@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Now | Truelife Film Production</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #FAF9F6;
+    color: #3d3b3b;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: #3d3b3b;
+  }
+
+  .logo {
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    text-decoration: none;
+  }
+
+  .back-home {
+    color: white;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .booking-section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 85px 8%;
+  }
+
+  .booking-intro {
+    text-align: center;
+    margin-bottom: 65px;
+  }
+
+  .booking-intro p:first-child {
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  .booking-intro h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 52px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .booking-intro p:last-child {
+    color: #77716a;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .booking-form {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .form-heading {
+    margin: 45px 0 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dedbd5;
+  }
+
+  .form-heading h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .form-heading p {
+    color: #77716a;
+    font-size: 13px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #d5d0c8;
+    background: transparent;
+    color: #3d3b3b;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: #77716a;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .booking-submit {
+    display: block;
+    margin: 25px auto 0;
+    padding: 17px 40px;
+    background: #3d3b3b;
+    color: white;
+    border: 1px solid #3d3b3b;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .booking-submit:hover {
+    background: transparent;
+    color: #3d3b3b;
+  }
+
+  @media (max-width: 600px) {
+    .booking-section {
+      padding: 60px 6%;
+    }
+
+    .booking-intro h1 {
+      font-size: 38px;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .booking-header {
+      padding: 20px 6%;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- BOOKING HEADER -->
+  <header class="booking-header">
+    <a href="index.html" class="logo">Truelife</a>
+    <a href="index.html" class="back-home">Back to Home</a>
+  </header>
+
+  <!-- BOOKING SECTION -->
+  <section class="booking-section">
+
+    <!-- BOOKING INTRODUCTION -->
+    <div class="booking-intro">
+      <p>LET'S CREATE SOMETHING MEMORABLE</p>
+      <h1>Book Your Experience</h1>
+      <p>
+        Tell us about your special occasion.
+        We'll be happy to help you capture every moment.
+      </p>
+    </div>
+
+    <!-- BOOKING FORM -->
+    <form class="booking-form">
+
+      <!-- PERSONAL INFORMATION -->
+      <div class="form-heading">
+        <h2>Personal Information</h2>
+        <p>Tell us how we can reach you.</p>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="fullName"
+            placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email"
+            placeholder="Enter your email" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone"
+          placeholder="Enter your phone number" required>
+      </div>
+
+      <!-- BOOKING DETAILS -->
+      <div class="form-heading">
+        <h2>Booking Details</h2>
+        <p>Give us the details of your event or photoshoot.</p>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="service">Type of Service</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Portrait">Portrait</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Events">Events</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Documentary">Documentary</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="package">Preferred Package</label>
+          <select id="package" name="package" required>
+            <option value="">Select a package</option>
+            <option value="Essential">Essential</option>
+            <option value="Signature">Signature</option>
+            <option value="Premium">Premium</option>
+            <option value="Not Sure">Not Sure Yet</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="event-date">Event Date</label>
+          <input type="date" id="event-date" name="eventDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="event-location">Event Location</label>
+          <input type="text" id="event-location" name="eventLocation"
+            placeholder="Enter event location" required>
+        </div>
+      </div>
+
+      <!-- ADDITIONAL INFORMATION -->
+      <div class="form-heading">
+        <h2>Additional Information</h2>
+        <p>Share any special requests or details with us.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6"
+          placeholder="Tell us more about your event..."></textarea>
+      </div>
+
+      <!-- SUBMIT -->
+      <button type="submit" class="booking-submit">
+        Submit Booking Request
+      </button>
+
+    </form>
+
+  </section>
+
+</body>
+</html>
