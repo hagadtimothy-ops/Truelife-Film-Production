@@ -172,6 +172,15 @@
       padding: 20px 6%;
     }
   }
+
+.website-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 </style>
 </head>
 
@@ -197,7 +206,19 @@
     </div>
 
     <!-- BOOKING FORM -->
-    <form class="booking-form">
+    <form class="booking-form" id="booking-form">
+      
+<div class="website-field" aria-hidden="true">
+    <label for="website">Website</label>
+    <input
+        type="text"
+        id="website"
+        name="website"
+        tabindex="-1"
+        autocomplete="off"
+    >
+</div>
+
 
       <!-- PERSONAL INFORMATION -->
       <div class="form-heading">
@@ -289,6 +310,44 @@
     </form>
 
   </section>
+
+<script>
+const bookingForm = document.querySelector(".booking-form");
+
+bookingForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const submitButton = bookingForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    const formData = new URLSearchParams(new FormData(bookingForm));
+
+    try {
+        await fetch(
+            "https://script.google.com/macros/s/AKfycbx5V95-PqMcixXUHO32EUnTqW87W7p29KYQZecQvU34dPUUrXmXQyAAGYwvw_bFrlof2A/exec",
+            {
+                method: "POST",
+                mode: "no-cors",
+                body: formData
+            }
+        );
+
+        alert("Your booking request has been sent! We will contact you after reviewing your request.");
+        bookingForm.reset();
+
+    } catch (error) {
+        alert("Something went wrong. Please try submitting your booking again.");
+        console.error(error);
+
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+    }
+});
+</script>
 
 </body>
 </html>
